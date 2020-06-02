@@ -1,9 +1,9 @@
 import React from "react"
 import Avatar from "avataaars"
 
-class MyAvatar extends React.Component {
-    render() {
-      return <Avatar
+export default function MyAvatar(){
+    return (
+      <Avatar
       avatarStyle='Circle'
       topType='ShortHairShortRound'
       accessoriesType='Prescription02'
@@ -14,8 +14,6 @@ class MyAvatar extends React.Component {
       eyebrowType='DefaultNatural'
       mouthType='Default'
       skinColor='Brown'
-    />;
-    }
+    />
+    )
 }
-
-export default MyAvatar;

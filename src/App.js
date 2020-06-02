@@ -1,34 +1,40 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper"
-import Container from "@material-ui/core/Container"
+import { Container, Paper } from "@material-ui/core"
+import MyNavBar from "./components/MyNavBar"
+import About from "./components/About"
+import Projects from "./components/Projects"
+import Blog from "./components/Blog"
+import { MemoryRouter as Router } from 'react-router';
+import { Route } from 'react-router-dom';
+import Footer from "./components/Footer"
+import { makeStyles } from "@material-ui/core/styles"
 
-import {makeStyles} from "@material-ui/styles"
-
-import MyAvatar from "./components/MyAvatar"
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        alignItems:'center',
-        display:"flex",
-        justifyContent:'center',
-        width:1024,
+        spacing:5,
     },
-    paper:{
-        margin:'auto'
+    paper: {
+        flexGrow: "1",
     }
 
-  }));
+}));
 
 
 function App() {
     const classes = useStyles();
     return (
-        <Container className={classes.root} maxWidth="lg">
-            <Paper >
-            <MyAvatar />
-            <h1>Puggera Ponanna</h1>
-            </Paper>
-       </Container>
+        <Container maxWidth="lg" className={classes.root}>
+            <Router>
+                <MyNavBar />
+                <Paper className={classes.paper}>
+                    <Route path="/about" component={About} />
+                    <Route path="/projects" component={Projects} />
+                    <Route path="/blog" component={Blog}/>
+                    <Footer />
+                </Paper>
+            </Router>
+        </Container>
     )
 }
 
